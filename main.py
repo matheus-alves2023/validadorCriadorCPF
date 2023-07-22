@@ -34,12 +34,25 @@ def program():
     primeiro_digito = validador_primeirodigito(cpf_iteravel)
     cpf_iteravel.append(primeiro_digito)
     segundo_digito = validador_segundo_digito(cpf_iteravel)
-    
     cpf_iteravel.append(segundo_digito)
+    cpf_gerado = transformar_cpf_string(cpf_iteravel)
+    cpf_digitado_str = transformar_cpf_string(cpf_digitado)
 
+    print(valida_cpf_todo(cpf_digitado_str,cpf_gerado)) 
     
-    cpf_iteravel_digitado = prepara_cpf(cpf_digitado)
-    cpf_iteravel_gerado = prepara_cpf(cpf_iteravel)
-    print(cpf_iteravel_digitado)
 
 program()
+
+
+
+
+# 77689062768,
+# 00045024936,
+# 01182101062,
+# 21316016897,
+# 26616776824,
+# 72002557853,
+# 90678117934,
+# 82272182100,
+# 82272387187,
+# 82271577187

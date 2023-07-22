@@ -72,4 +72,4 @@
 lista = [7, 0, 3, 7, 4, 4, 0, 5, 1, 5, 8]
 
 
-list = int(lista)
+print(*lista,type(lista))
