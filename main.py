@@ -1,3 +1,4 @@
+import re
 from cp_utils import *
 from valida_primeiro_digito import *
 from valida_segundo_digito import *
@@ -8,23 +9,22 @@ cpf_digitado = []
 
 def recebe_trata_user_input():
 
-    cpf_valido = False
-    while cpf_valido is False: 
-        
+    
+    while True:
         
         cpf = input("Digite um cpf: ")
         
-        if len(cpf) == 11 or len(cpf) == 14:
+        cpf_limpo = re.sub(r'\D','',cpf)
 
-            cpf_valido = True
+        if len(cpf_limpo) == 11 and cpf_limpo.isnumeric():
+            break
             
-        
         else:
             print("Você digitou uma sequência de caracteres inválida. Tente novamente.")
             continue
 
-    cpf_digitado.append(cpf)
-    return cpf
+    cpf_digitado.append(cpf_limpo)
+    return cpf_limpo
 
 
 def program():
