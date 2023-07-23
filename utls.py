@@ -7,8 +7,11 @@ def input_user():
 
         cpf_user = input("Digite um cpf para validá-lo: ")
         cpf_user_trat = re.sub(r'\D','',cpf_user)
+        checa_se_tamanho11 = len(cpf_user_trat) == 11
+        checa_se_numerico = cpf_user_trat.isnumeric()
+        checa_se_repeticoes = cpf_user_trat.count(cpf_user_trat[0]) < 11
 
-        if len(cpf_user_trat) == 11 and cpf_user_trat.isnumeric():
+        if checa_se_tamanho11 and checa_se_numerico and checa_se_repeticoes:
             break
             
         else:
@@ -31,10 +34,6 @@ def remover_digitos_verificadores_e_converter_para_lista_de_inteiros(cpf_user_tr
     return cpf_s_digitos_lista_iteravel
  
        
-
-
-
-
 def valida_cpf_todo(cpf_user_input, cpf_formado):
 
     cpf_formadoComp = ""
