@@ -1,5 +1,7 @@
 
 import re
+from random import randint
+
 
 def input_user():
 
@@ -22,15 +24,14 @@ def input_user():
 
 def remover_digitos_verificadores_e_converter_para_lista_de_inteiros(cpf_user_trat):
 
+    cpf_sem_digitos = cpf_user_trat[:9]
     cpf_s_digitos_lista_iteravel = []
     
-    for v in cpf_user_trat:
+    for v in cpf_sem_digitos:
 
         v = int(v)
         cpf_s_digitos_lista_iteravel.append(v)
 
-        if len(cpf_s_digitos_lista_iteravel) == 9 or len(cpf_s_digitos_lista_iteravel) == 10:
-            break
     return cpf_s_digitos_lista_iteravel
  
        
@@ -49,3 +50,21 @@ def valida_cpf_todo(cpf_user_input, cpf_formado):
     else:
 
         return "O CPF é inválido!"
+    
+
+
+
+
+def gera_cpf_random():
+    valores = ''
+    for c in range(1,12):
+
+        a = randint(1,10)
+        valores +=str(a)
+    return valores
+
+def cpf_gerado_validado(cpf_gerado_lista):
+
+    cpf_gerado_string = [str(v) for v in cpf_gerado_lista]
+
+    return ''.join(cpf_gerado_string)
